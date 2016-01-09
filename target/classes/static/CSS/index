@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+img {
+	/*display: block;*/
+	height: 250px;
+	width: 200px;
+	margin: auto;
+}
+
+p {
+	text-align: center;
+	font-family: Garamond, serif;
+	font-size: 18px;
+}
+
+.t{
+	margin-right:5px;
+	display:inline-block;
+	word-wrap:break-word;
+	width:200px;
+	
+	}
+
+.movie{
+    /*height: 300px;*/
+    /*width:200px;*/
+    border-color: #FFFF;
+    background-color: #BCD2EE;
+    border: 2px solid;
+}
+
+.movies div{
+	display: inline;;
+}
+
+button{
+	margin: 10px;
+	padding: 5px;
+	background-color: blue;
+	border: 1px solid ;
+}

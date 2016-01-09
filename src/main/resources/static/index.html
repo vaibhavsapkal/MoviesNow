@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app="movies-now">
+<head>
+<meta charset="ISO-8859-1">
+<title>MoviesNow</title>
+<link type="text/css" rel="stylesheet" href="CSS/index.css" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="js/angular.js"></script>
+<script src="js/ui-bootstrap-tpls-0.12.1.js"></script>
+<script src="js/angular-route.min.js"></script>
+<script src="controllers/app.js"></script>
+<script src="controllers/navController.js"></script>
+<script src="controllers/mainController.js"></script>
+<script src="controllers/myMoviesController.js"></script>
+<script src="controllers/signInController.js"></script>
+<script src="controllers/myRequestsController.js"></script>
+
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div>
+		<nav role="navigation" class="navbar navbar-default">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" data-target="#navbarCollapse"
+					data-toggle="collapse" class="navbar-toggle">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a href="#" class="navbar-brand">MoviesNow</a>
+			</div>
+			<!-- Collection of nav links and other content for toggling -->
+			<div id="navbarCollapse" class="collapse navbar-collapse" ng-hide = "">
+				<ul class="nav navbar-nav nav-tabs" ng-controller="navController">
+					<li ng-class="navClass('home')"><a href="#/home">Home</a></li>
+					<li ng-class="navClass('myMovies')"><a href="#/myMovies">My Movies</a></li>
+					<li ng-class="navClass('myRequests')"><a href="#/myRequests">My Requests</a></li>
+				</ul>
+
+				<ul class="nav pull-right navbar-nav nav-tabs"
+					ng-controller="signInController">
+					<li class="dropdown"><a class="dropdown-toggle" href="#"
+						data-toggle="dropdown" ng-hide = "isRegistered">Sign Up<strong class="caret"></strong></a>
+						<div class="dropdown-menu"
+							style="padding: 15px; padding-bottom: 0px;">
+							<!-- Sign Up form here -->
+							<form class="form-horizontal" role="form" name="signUpForm">
+								<input type="text" class="form-control" ng-model="Name"
+									id="Name" placeholder="Enter Name" required
+									style="margin-bottom: 15px;"> <input type="email"
+									class="form-control" ng-model="Email" id="email"
+									placeholder="Enter email" required style="margin-bottom: 15px;">
+
+								<input type="password" class="form-control" ng-model="Password"
+									id="pwd" name="password" placeholder="Enter password" required
+									style="margin-bottom: 15px;"> <input type="password"
+									class="form-control" ng-model="ReEnteredPassword" id="pwd"
+									name="reEnteredPassword" placeholder="ReEnter password"
+									required style="margin-bottom: 15px; width: 150px;">
+
+								<button type="btn btn-primary" class="btn btn-default"
+									ng-click="signUp()" style="margin-bottom: 15px;">Sign
+									Up</button>
+							</form>
+
+
+						</div></li>
+					<li class="dropdown" ng-hide = "isRegistered"><a class="dropdown-toggle" href="#"
+						data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Sign
+							In <strong class="caret"></strong>
+					</a>
+						<div class="dropdown-menu dropdown-menu-right"
+							style="padding: 15px; padding-bottom: 0px;">
+							<!-- Login form here -->
+
+
+							<form class="form-horizontal" role="form">
+								<input type="email" class="form-control" ng-model="userEmail"
+									id="email" placeholder="Enter email"
+									style="margin-bottom: 15px;"> <input type="password"
+									class="form-control" ng-model="userPassword" id="pwd"
+									placeholder="Enter password" required
+									style="margin-bottom: 15px;">
+
+								<button type="btn btn-primary" class="btn btn-default"
+									ng-click="signin()" required style="margin-bottom: 15px;">Sign
+									In</button>
+							</form>
+
+						</div></li>
+						
+						<li class="btn btn-primary" ng-show = "isRegistered" ng-click="signOut()">Sign Out</li>						
+				</ul>
+			</div>
+		</nav>
+	</div>
+
+	<div>
+		<ng-view></ng-view>
+	</div>
+</body>
+</html>
